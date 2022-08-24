@@ -4,8 +4,7 @@ const db = require("./config")
 const Productos = require("./routes/ProductoDao")
 const Carrito = require("./routes/CarritoDao")
 
-
-
+const PORT = process.env.PORT || 8080
 
 const app = express()
 
@@ -20,7 +19,8 @@ app.use("/api/carrito", Carrito)
 
 //=======================//
 
-app.listen(8080, () => {
-    console.log("Server listening...");
+const server = app.listen(PORT, () => {
+    console.log(`Server listening [${PORT}]...`);
     db();
 })
+server.on("error", e => console.log("Error on server"));

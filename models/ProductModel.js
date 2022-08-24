@@ -7,12 +7,6 @@ const productSchema = new mongoose.Schema({
     description: { type: String, required: true},
     url: { type: String, required: true },
     inCart: {type: Boolean, default: false}
-},
-{
-    
-}
-)
-
-
+})
 
 module.exports = Product = mongoose.model("Product", productSchema)
